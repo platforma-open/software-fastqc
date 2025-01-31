@@ -1,0 +1,54 @@
+{
+  "name": "@platforma-open/milaboratories.software-fastqc",
+  "version": "1.0.0",
+  "description": "FastQC software package for Platforma Backend",
+  "scripts": {
+    "build": "true",
+    "pkg:build": "pl-pkg build packages",
+    "pkg:sign": "pl-pkg sign packages --sign-command='[\"gcloud-kms-sign\", \"{pkg}\", \"{pkg}.sig\"]'",
+    "pkg:publish": "pl-pkg publish packages",
+    "pkg:release": "npm run pkg:build && npm run pkg:sign && npm run pkg:publish",
+    "descriptor:build": "pl-pkg build descriptors",
+    "descriptor:publish": "pl-pkg publish descriptors",
+    "descriptor:release": "npm run descriptor:build && npm run descriptor:publish",
+    "postinstall": "node ./scripts/unpack.js 0.12.1",
+    "prepublishOnly": "npm run pkg:release && npm run descriptor:build"
+  },
+  "files": [
+    "dist/"
+  ],
+  "block-software": {
+    "entrypoints": {
+      "0.12.1": {
+        "binary": {
+          "artifact": {
+            "registry": "platforma-open",
+            "name": "fastqc",
+            "type": "java",
+            "environment": "@platforma-open/milaboratories.runenv-java-corretto:21.0.2.13.1",
+            "root": "./dld/fastqc/"
+          },
+          "cmd": [
+            "java",
+            "-XX:MaxRAMPercentage=80.0",
+            "-XX:MaxHeapFreeRatio=10",
+            "-XX:MinHeapFreeRatio=2",
+            "-XX:+ExitOnOutOfMemoryError",
+            "-classpath",
+            "{pkg};",
+            "{pkg}/htsjdk.jar;",
+            "{pkg}/jbzip2-0.9.jar;",
+            "{pkg}/cisd-jhdf5.jar",
+            "uk.ac.babraham.FastQC.FastQCApplication"
+          ]
+        }
+      }
+    }
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@platforma-sdk/package-builder": "^2.15.0",
+    "@platforma-open/milaboratories.runenv-java-corretto": "^1.0.2",
+    "unzipper": "^0.12.3"
+  }
+}
