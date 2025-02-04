@@ -1,6 +1,6 @@
 {
   "name": "@platforma-open/milaboratories.software-fastqc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FastQC software package for Platforma Backend",
   "scripts": {
     "build": "true",
@@ -15,7 +15,8 @@
     "prepublishOnly": "npm run pkg:release && npm run descriptor:build"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "scripts/unpack.js"
   ],
   "block-software": {
     "entrypoints": {
