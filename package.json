@@ -1,6 +1,6 @@
 {
   "name": "@platforma-open/milaboratories.software-fastqc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "FastQC software package for Platforma Backend",
   "scripts": {
     "build": "true",
@@ -20,7 +20,7 @@
   ],
   "block-software": {
     "entrypoints": {
-      "0.12.1": {
+      "main": {
         "binary": {
           "artifact": {
             "registry": "platforma-open",
@@ -36,9 +36,9 @@
             "-XX:MinHeapFreeRatio=2",
             "-XX:+ExitOnOutOfMemoryError",
             "-classpath",
-            "{pkg};",
-            "{pkg}/htsjdk.jar;",
-            "{pkg}/jbzip2-0.9.jar;",
+            "{pkg}:",
+            "{pkg}/htsjdk.jar:",
+            "{pkg}/jbzip2-0.9.jar:",
             "{pkg}/cisd-jhdf5.jar",
             "uk.ac.babraham.FastQC.FastQCApplication"
           ]
