@@ -1,6 +1,6 @@
 {
   "name": "@platforma-open/babraham.software-fastqc",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Babraham Bioinformatics FastQC software package for Platforma Backend",
   "scripts": {
     "build": "true",
@@ -30,9 +30,6 @@
             "-XX:MinHeapFreeRatio=2",
             "-XX:+ExitOnOutOfMemoryError",
             "-Djava.awt.headless=true",
-            "-Djava.awt.graphicsenv=sun.awt.HeadlessGraphicsEnvironment",
-            "-Djava.awt.fonts=/dev/null",
-            "-Dsun.awt.fontconfig={pkg}/fontconfig.properties",
             "-Dfastqc.svg=false",
             "-cp", "{pkg}:{pkg}/htsjdk.jar:{pkg}/jbzip2-0.9.jar:{pkg}/cisd-jhdf5.jar",
             "uk.ac.babraham.FastQC.FastQCApplication"
@@ -44,7 +41,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@platforma-sdk/package-builder": "^2.15.6",
-    "@platforma-open/milaboratories.runenv-java-corretto": "^1.0.2",
+    "@platforma-open/milaboratories.runenv-java-corretto": "^1.1.7",
     "unzipper": "^0.12.3"
   }
 }
