@@ -2,3 +2,4 @@ dist/
 pkg-*.tgz
 /node_modules/
 main.sw.json
+**/*/package.sw.json

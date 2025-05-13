@@ -29,5 +29,5 @@ pl-pkg sign packages \
 
 pl-pkg publish packages \
     --package-id="${version}" \
-    --fail-existing-packages\
+    --force \
     --all-platforms 
