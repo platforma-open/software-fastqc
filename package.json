@@ -4,9 +4,11 @@
   "description": "Babraham Bioinformatics FastQC software package for Platforma Backend",
   "scripts": {
     "build": "true",
-    "pkg:build": "./scripts/build.sh main",
-    "pkg:publish": "./scripts/publish.sh main",
-    "prepublishOnly": "npm run pkg:build && npm run pkg:publish"
+    "pkg:build": "pl-pkg build packages",
+    "pkg:publish": "pl-pkg publish packages",
+    "descriptor:build": "pl-pkg build descriptors",
+    "descriptor:publish": "pl-pkg publish descriptors",
+    "prepublishOnly": "npm run pkg:release && npm run descriptor:build"
   },
   "files": [
     "dist/"
