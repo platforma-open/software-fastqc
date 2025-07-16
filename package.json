@@ -1,6 +1,6 @@
 {
   "name": "@platforma-open/babraham.software-fastqc",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Babraham Bioinformatics FastQC software package for Platforma Backend",
   "scripts": {
     "build": "true",
