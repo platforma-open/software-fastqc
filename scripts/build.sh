@@ -20,12 +20,9 @@ fi
 #
 # Script parameters
 #
-version="${1}"
+#version="${1}"
 
 # Fast-track: make descriptors at the very beginning
-pl-pkg build descriptors \
-    --package-id="${version}"
-
+pl-pkg build descriptors 
 pl-pkg build packages \
-    --package-id="${version}" \
     --all-platforms 
