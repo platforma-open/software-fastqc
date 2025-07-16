@@ -3,6 +3,7 @@
   "version": "1.0.9",
   "description": "Babraham Bioinformatics FastQC software package for Platforma Backend",
   "scripts": {
+    "build": "true",
     "pkg:build": "pl-pkg build packages",
     "pkg:sign": "pl-pkg sign packages --sign-command='[\"gcloud-kms-sign\", \"{pkg}\", \"{pkg}.sig\"]'",
     "pkg:publish": "pl-pkg publish packages",
