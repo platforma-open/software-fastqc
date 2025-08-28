@@ -1,0 +1,95 @@
+{
+  "name": "@platforma-open/babraham.software-fastqc.0.12.1",
+  "version": "1.0.0",
+  "description": "Babraham Bioinformatics FastQC software package for Platforma Backend",
+  "scripts": {
+    "build": "pl-pkg build",
+    "prepublishOnly": "pl-pkg prepublish"
+  },
+  "files": [
+    "dist/"
+  ],
+  "block-software": {
+    "artifacts": {
+      "docker": {
+        "type": "docker",
+        "dockerfile": "Dockerfile",
+        "context": "./fastqc/"
+      },
+      "archive": {
+        "registry": "platforma-open",
+        "type": "java",
+        "environment": "@platforma-open/milaboratories.runenv-java-corretto:21.0.2.13.1",
+        "root": "./fastqc/"
+      }
+    },
+    "entrypoints": {
+      "unix": {
+        "docker": {
+          "artifact": "docker",
+          "cmd": [
+            "java",
+            "-XX:MaxRAMPercentage=80.0",
+            "-XX:MaxHeapFreeRatio=10",
+            "-XX:MinHeapFreeRatio=2",
+            "-XX:+ExitOnOutOfMemoryError",
+            "-Djava.awt.headless=true",
+            "-Dfastqc.svg=false",
+            "-cp", "/app:/app/htsjdk.jar:/app/jbzip2-0.9.jar:/app/cisd-jhdf5.jar",
+            "uk.ac.babraham.FastQC.FastQCApplication"
+          ]
+        },
+        "binary": {
+          "artifact": "archive",
+          "cmd": [
+            "java",
+            "-XX:MaxRAMPercentage=80.0",
+            "-XX:MaxHeapFreeRatio=10",
+            "-XX:MinHeapFreeRatio=2",
+            "-XX:+ExitOnOutOfMemoryError",
+            "-Djava.awt.headless=true",
+            "-Dfastqc.svg=false",
+            "-cp", "{pkg}:{pkg}/htsjdk.jar:{pkg}/jbzip2-0.9.jar:{pkg}/cisd-jhdf5.jar",
+            "uk.ac.babraham.FastQC.FastQCApplication"
+          ]
+        }
+      },
+      "windows": {
+        "docker": {
+          "artifact": "docker",
+          "cmd": [
+            "java",
+            "-XX:MaxRAMPercentage=80.0",
+            "-XX:MaxHeapFreeRatio=10",
+            "-XX:MinHeapFreeRatio=2",
+            "-XX:+ExitOnOutOfMemoryError",
+            "-Djava.awt.headless=true",
+            "-Dfastqc.svg=false",
+            "-cp", "/app:/app/htsjdk.jar:/app/jbzip2-0.9.jar:/app/cisd-jhdf5.jar",
+            "uk.ac.babraham.FastQC.FastQCApplication"
+          ]
+        },
+        "binary": {
+          "artifact": "archive",
+          "cmd": [
+            "java",
+            "-XX:MaxRAMPercentage=80.0",
+            "-XX:MaxHeapFreeRatio=10",
+            "-XX:MinHeapFreeRatio=2",
+            "-XX:+ExitOnOutOfMemoryError",
+            "-Djava.awt.headless=true",
+            "-Dfastqc.svg=false",
+            "-cp", "{pkg};{pkg}/htsjdk.jar;{pkg}/jbzip2-0.9.jar;{pkg}/cisd-jhdf5.jar",
+            "uk.ac.babraham.FastQC.FastQCApplication"
+          ]
+        }
+      }
+    }
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@platforma-sdk/package-builder": "^3.2.2",
+    "@platforma-open/milaboratories.runenv-java-corretto": "^1.1.7",
+    "unzipper": "^0.12.3"
+  }
+}

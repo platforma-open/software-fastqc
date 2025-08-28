@@ -1,0 +1,23 @@
+{
+  "name": "@platforma-open/babraham.software-fastqc",
+  "version": "1.0.11",
+  "description": "Babraham Bioinformatics FastQC software package for Platforma Backend",
+  "scripts": {
+    "build": "pl-pkg build",
+    "prepublishOnly": "pl-pkg prepublish"
+  },
+  "files": [
+    "dist/"
+  ],
+  "block-software": {
+    "entrypoints": {
+      "unix":    { "reference": "@platforma-open/babraham.software-fastqc.0.12.1/dist/tengo/software/unix.sw.json" },
+      "windows": { "reference": "@platforma-open/babraham.software-fastqc.0.12.1/dist/tengo/software/windows.sw.json" }
+    }
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@platforma-sdk/package-builder": "catalog:",
+    "@platforma-open/babraham.software-fastqc.0.12.1": "workspace:*"
+  }
+}
