@@ -13,8 +13,8 @@ catalogs:
       specifier: ^2.0.0
       version: 2.0.0
     '@platforma-sdk/package-builder':
-      specifier: ^3.2.2
-      version: 3.2.2
+      specifier: ^3.2.3
+      version: 3.2.3
     turbo:
       specifier: ^2.3.3
       version: 2.5.6
@@ -52,7 +52,7 @@ importers:
         version: link:../0.12.1
       '@platforma-sdk/package-builder':
         specifier: 'catalog:'
-        version: 3.2.2
+        version: 3.2.3
 
 packages:
 
@@ -343,6 +343,10 @@ packages:
 
   '@platforma-sdk/package-builder@3.2.2':
     resolution: {integrity: sha512-8xALxTWZGIYMuo/az5mD5anU/Rt/r3TAaAaaOPvOmZh20MaDLTSNHA7NnhxPM3x9KcI0XvAUBk0Ymuf/jVXJrg==}
+    hasBin: true
+
+  '@platforma-sdk/package-builder@3.2.3':
+    resolution: {integrity: sha512-77svGXJneV1V1WP6OMwLb3wiX3+lCAqwW9cQfyAHbUcNYGDUnjGLQ2r8nFC/JBVtCvLbpbx/3VQKdOGRlmJWyw==}
     hasBin: true
 
   '@smithy/abort-controller@4.0.5':
@@ -2080,6 +2084,23 @@ snapshots:
       yaml: 2.8.1
 
   '@platforma-sdk/package-builder@3.2.2':
+    dependencies:
+      '@aws-sdk/client-s3': 3.859.0
+      '@aws-sdk/lib-storage': 3.859.0(@aws-sdk/client-s3@3.859.0)
+      '@milaboratories/resolve-helper': 1.1.1
+      '@oclif/core': 4.5.2
+      '@types/archiver': 6.0.3
+      '@types/node': 20.16.15
+      archiver: 7.0.1
+      canonicalize: 2.1.0
+      tar: 7.4.3
+      winston: 3.17.0
+      yaml: 2.8.1
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - aws-crt
+
+  '@platforma-sdk/package-builder@3.2.3':
     dependencies:
       '@aws-sdk/client-s3': 3.859.0
       '@aws-sdk/lib-storage': 3.859.0(@aws-sdk/client-s3@3.859.0)
