@@ -88,8 +88,7 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "@platforma-sdk/package-builder": "^3.2.2",
-    "@platforma-open/milaboratories.runenv-java-corretto": "^1.1.7",
-    "unzipper": "^0.12.3"
+    "@platforma-sdk/package-builder": "catalog:",
+    "@platforma-open/milaboratories.runenv-java-corretto": "catalog:"
   }
 }
