@@ -9,4 +9,4 @@ catalog:
   "@platforma-sdk/package-builder": "^3.2.3"
   "@platforma-sdk/blocks-deps-updater": "^2.0.0"
 
-  "@platforma-open/milaboratories.runenv-java-corretto": "^1.1.7",
+  "@platforma-open/milaboratories.runenv-java-corretto": "^1.1.7"
