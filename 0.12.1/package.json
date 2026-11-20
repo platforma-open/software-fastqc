@@ -19,7 +19,7 @@
       "archive": {
         "registry": "platforma-open",
         "type": "java",
-        "environment": "@platforma-open/milaboratories.runenv-java-corretto:21.0.2.13.1",
+        "environment": "@platforma-open/milaboratories.runenv-java-corretto:21.0.13.1.2",
         "root": "./fastqc/"
       }
     },
